@@ -7,8 +7,13 @@ import dagger.Provides;
 public class NetworkModule {
 
     @Provides
-    NetworkUtils provideNetworkUtils() {
-        return new NetworkUtils();
+    NetworkUtils provideNetworkUtils(HttpClient httpClient) {
+        return new NetworkUtils(httpClient);
+    }
+
+    @Provides
+    HttpClient provideHttpClient() {
+        return new HttpClient();
     }
 
 }
