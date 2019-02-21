@@ -1,9 +1,12 @@
 package com.example.daggerexample;
 
+import android.database.DatabaseUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import javax.inject.Inject;
+
+import dagger.Lazy;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,12 +29,17 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     NetworkUtils networkUtils;
 
+    @Inject
+    Lazy<DatabaseUtils> mDatabaseUtilsProvider;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         App.getComponent().injectsMainActivity(this);
+
+        mDatabaseUtilsProvider.get(); // creates and returns DatabaseUtils object
     }
 
 }
