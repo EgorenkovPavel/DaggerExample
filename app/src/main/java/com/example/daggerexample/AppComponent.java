@@ -1,5 +1,7 @@
 package com.example.daggerexample;
 
+import javax.inject.Named;
+
 import dagger.Component;
 
 //FIRST METHOD - GET methods
@@ -8,6 +10,13 @@ import dagger.Component;
 //public interface AppComponent {
 //    NetworkUtils getNetworkUtils();
 //    DatabaseHelper getDatabaseHelper();
+
+//@Named("prod")
+//DatabaseUtils getDatabaseUtils();
+//
+
+//@Named("test")
+//DatabaseUtils getDatabaseUtilsTest();
 //}
 
 //SECOND METHOD - injects

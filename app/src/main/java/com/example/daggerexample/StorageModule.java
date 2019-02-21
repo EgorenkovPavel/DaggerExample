@@ -1,5 +1,7 @@
 package com.example.daggerexample;
 
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -11,4 +13,15 @@ public class StorageModule {
         return new DatabaseHelper();
     }
 
+    @Named("prod")
+    @Provides
+    public DatabaseUtils provideDatabaseUtils() {
+        return new DatabaseUtils("database.db");
+    }
+
+    @Named("test")
+    @Provides
+    public DatabaseUtils provideDatabaseUtilsTest() {
+        return new DatabaseUtils("test.db");
+    }
 }

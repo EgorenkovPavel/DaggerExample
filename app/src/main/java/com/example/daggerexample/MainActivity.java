@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import dagger.Lazy;
 
@@ -31,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject
     Lazy<DatabaseUtils> mDatabaseUtilsProvider;
+
+    @Named("prod")
+    @Inject
+    DatabaseUtils mDatabaseUtils;
+
+    @Named("test")
+    @Inject
+    DatabaseUtils mDatabaseUtilsTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
