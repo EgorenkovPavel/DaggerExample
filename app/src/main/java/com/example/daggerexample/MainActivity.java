@@ -4,6 +4,8 @@ import android.database.DatabaseUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.Set;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -31,15 +33,18 @@ public class MainActivity extends AppCompatActivity {
     NetworkUtils networkUtils;
 
     @Inject
-    Lazy<DatabaseUtils> mDatabaseUtilsProvider;
+    Lazy<DatabaseHelper> mDatabaseUtilsProvider;
 
-    @Named("prod")
-    @Inject
-    DatabaseUtils mDatabaseUtils;
+//    @Named("prod")
+//    @Inject
+//    DatabaseUtils mDatabaseUtils;
+//
+//    @Named("test")
+//    @Inject
+//    DatabaseUtils mDatabaseUtilsTest;
 
-    @Named("test")
     @Inject
-    DatabaseUtils mDatabaseUtilsTest;
+    Set<Action> eventHandlers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
